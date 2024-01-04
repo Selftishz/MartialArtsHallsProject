@@ -9,20 +9,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MartialArtsHallsProjectApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(MartialArtsHallsProjectApplication.class, args);
-        System.out.println(Entities.COACH);
         /*try (var sessionFactory = HibernateUtil.buildSessionFactory();
              var session = sessionFactory.openSession();) {
+            session.clear();
             System.out.println("OK");
             session.beginTransaction();
             session.persist(Gym.builder()
-                    .id_gym(2)
                     .address("Lenina 5")
                     .build());
-            session.getTransaction().commit();
-        }*/
-    }
+            session.getTransaction().commit();*/
 
+    }
 }
+
+

@@ -10,8 +10,9 @@
     <property name="connection.password">1234</property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
-    <mapping class="by.podvintsev.martialartshallsproject.entity.Gym"/>
-    <!-- <property name="connection.username"/> -->
+
+   <mapping class="by.podvintsev.martialartshallsproject.entity.Gym"/>
+   <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 
     <!-- DB schema will be updated if needed -->
