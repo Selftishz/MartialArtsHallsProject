@@ -17,15 +17,21 @@ public class MainController {
     public String home(Model model) {
         return "home.html";
     }
-    @GetMapping("/home/newedit")
-    public String insert(Model model, @RequestParam("selectTable") String selectTable) {
+    @GetMapping("/home/select")
+    public String selectTable(Model model, @RequestParam("selectTable") String selectTable) {
         model.addAttribute("gym", new Gym());
         return selectTable.toLowerCase() + ".html";
     }
-    @PostMapping("/home/newedit/gym")
+    @PostMapping(value = "/home/select/gym", params = "button=insert")
     public String insertGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
-        RequestToDatabaseService.insertIntoDatabase(gym);
-        return "home.html";
+        RequestToDatabaseService.insertIntoGym(gym);
+        return "gym.html";
+    }
+
+    @PostMapping(value = "/home/select/gym", params = "button=update")
+    public String updateGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
+        RequestToDatabaseService.updateGym(gym);
+        return "gym.html";
     }
     @ModelAttribute("entities")
     public Entities[] entities() {

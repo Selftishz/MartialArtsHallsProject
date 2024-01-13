@@ -6,10 +6,15 @@
 </head>
 <body>
     <h1>Hello, this is gym page</h1>
-    <form th:method="POST" th:action="@{/home/newedit/gym}" th:object="${gym}">
-        <label for="input1">Enter address:</label>
+    <form th:method="POST" th:action="@{/home/select/gym}" th:object="${gym}">
+        <label for="input1">Enter address of new gym:</label>
         <input type=text id="input1" th:field="*{address}">
-        <button>Insert into table</button>
+        <button type="submit" name="button" value="insert">Insert into table</button>
+        <br>
+        <label for="input2">Enter id and new address of the gym you need to edit:</label>
+        <input type=text id="input2" th:field="*{id_gym}">
+        <input type=text id="input3" th:field="*{address}">
+        <button type="submit" name="button" value="update">Update</button>
     </form>
 
 
