@@ -25,12 +25,14 @@ public class MainController {
     @PostMapping(value = "/home/select/gym", params = "button=insert")
     public String insertGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
         RequestToDatabaseService.insertIntoGym(gym);
+        model.addAttribute(new Gym());
         return "gym.html";
     }
 
     @PostMapping(value = "/home/select/gym", params = "button=update")
     public String updateGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
         RequestToDatabaseService.updateGym(gym);
+        model.addAttribute(new Gym());
         return "gym.html";
     }
     @ModelAttribute("entities")

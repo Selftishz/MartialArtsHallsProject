@@ -11,8 +11,13 @@
         <input type=text id="input1" th:field="*{address}">
         <button type="submit" name="button" value="insert">Insert into table</button>
         <br>
-        <label for="input2">Enter id and new address of the gym you need to edit:</label>
+    </form>
+
+    <form th:method="POST" th:action="@{/home/select/gym}" th:object="${gym}">
+        <p>Type id of a row you need to edit and new address: </p>
+        <label for="input2">Id:</label>
         <input type=text id="input2" th:field="*{id_gym}">
+        <label for="input3">New Address:</label>
         <input type=text id="input3" th:field="*{address}">
         <button type="submit" name="button" value="update">Update</button>
     </form>

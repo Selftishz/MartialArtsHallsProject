@@ -3,6 +3,7 @@ package by.podvintsev.martialartshallsproject.service;
 import by.podvintsev.martialartshallsproject.entity.Gym;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 public class RequestToDatabaseService {
@@ -19,9 +20,11 @@ public class RequestToDatabaseService {
     public static void updateGym(Gym gym) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
+            System.out.println(gym.getId_gym());
             session.beginTransaction();
             Gym edit = session.get(Gym.class, gym.getId_gym());
-            edit.setAddress(gym.getAddress());
+            String address = gym.getAddress();
+            edit.setAddress(address);
             session.getTransaction().commit();
         }
     }
