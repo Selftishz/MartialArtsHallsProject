@@ -28,10 +28,15 @@ public class MainController {
         model.addAttribute(new Gym());
         return "gym.html";
     }
-
     @PostMapping(value = "/home/select/gym", params = "button=update")
     public String updateGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
         RequestToDatabaseService.updateGym(gym);
+        model.addAttribute(new Gym());
+        return "gym.html";
+    }
+    @PostMapping(value = "/home/select/gym", params = "button=delete")
+    public String deleteGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
+        RequestToDatabaseService.deleteGym(gym);
         model.addAttribute(new Gym());
         return "gym.html";
     }

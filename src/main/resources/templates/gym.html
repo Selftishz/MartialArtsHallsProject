@@ -22,6 +22,13 @@
         <button type="submit" name="button" value="update">Update</button>
     </form>
 
+    <form th:method="POST" th:action="@{/home/select/gym}" th:object="${gym}">
+        <p>Type id of a row you need to delete: </p>
+        <label for="input4">Id:</label>
+        <input type=text id="input4" th:field="*{id_gym}">
+        <button type="submit" name="button" value="delete">Delete</button>
+    </form>
+
 
 </body>
 </html>
