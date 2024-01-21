@@ -2,17 +2,18 @@ package by.podvintsev.martialartshallsproject.controller;
 
 import by.podvintsev.martialartshallsproject.entity.Gym;
 import by.podvintsev.martialartshallsproject.model.Entities;
-import by.podvintsev.martialartshallsproject.service.RequestToDatabaseService;
-import by.podvintsev.martialartshallsproject.util.HibernateUtil;
+import by.podvintsev.martialartshallsproject.service.RequestToGymDatabaseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
     ArrayList<String> arrayList = new ArrayList<>();
+    List<Gym> allGyms = new ArrayList<>();
     @GetMapping ("/home")
     public String home(Model model) {
         return "home.html";
@@ -20,24 +21,32 @@ public class MainController {
     @GetMapping("/home/select")
     public String selectTable(Model model, @RequestParam("selectTable") String selectTable) {
         model.addAttribute("gym", new Gym());
+        RequestToGymDatabaseService.uploadGym(allGyms, model);
         return selectTable.toLowerCase() + ".html";
+    }
+    @PostMapping(value = "/home/select/gym")
+    public void reloadGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
+
     }
     @PostMapping(value = "/home/select/gym", params = "button=insert")
     public String insertGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
-        RequestToDatabaseService.insertIntoGym(gym);
-        model.addAttribute(new Gym());
+        RequestToGymDatabaseService.insertIntoGym(gym);
+        RequestToGymDatabaseService.uploadGym(allGyms, model);
+        model.addAttribute("gym", new Gym());
         return "gym.html";
     }
     @PostMapping(value = "/home/select/gym", params = "button=update")
     public String updateGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
-        RequestToDatabaseService.updateGym(gym);
-        model.addAttribute(new Gym());
+        RequestToGymDatabaseService.updateGym(gym);
+        RequestToGymDatabaseService.uploadGym(allGyms, model);
+        model.addAttribute("gym", new Gym());
         return "gym.html";
     }
     @PostMapping(value = "/home/select/gym", params = "button=delete")
     public String deleteGymOperation(Model model, @ModelAttribute("gym") Gym gym) {
-        RequestToDatabaseService.deleteGym(gym);
-        model.addAttribute(new Gym());
+        RequestToGymDatabaseService.deleteGym(gym);
+        RequestToGymDatabaseService.uploadGym(allGyms, model);
+        model.addAttribute("gym", new Gym());
         return "gym.html";
     }
     @ModelAttribute("entities")

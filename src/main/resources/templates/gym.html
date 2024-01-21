@@ -29,6 +29,16 @@
         <button type="submit" name="button" value="delete">Delete</button>
     </form>
 
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>address</th>
+        </tr>
+        <tr th:each="gym : ${allGyms}">
+            <td th:text="${gym.id_gym}"></td>
+            <td th:text="${gym.address}"></td>
+        </tr>
+    </table>
 
 </body>
 </html>
