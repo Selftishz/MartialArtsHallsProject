@@ -9,8 +9,6 @@ import java.util.List;
 
 @Service
 public class RequestToGymDatabaseService {
-
-
     public static void insertIntoGym(Gym gym) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
