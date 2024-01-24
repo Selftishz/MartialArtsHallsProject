@@ -17,5 +17,7 @@ public class Coach {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_coach;
     @Embedded
-    private Human human;
+    private PersonalInfo human;
+    private String education;
+    private String additional_education;
 }

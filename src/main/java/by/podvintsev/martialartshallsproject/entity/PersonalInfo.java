@@ -11,13 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Embeddable
-@Table(name = "human", schema = "public")
-public class Human {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class PersonalInfo {
+
     private String first_name;
     private String last_name;
     private String phone_number;
     private String address;
+
 }
