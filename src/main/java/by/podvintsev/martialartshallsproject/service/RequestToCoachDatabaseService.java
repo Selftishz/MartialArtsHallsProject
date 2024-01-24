@@ -1,5 +1,6 @@
 package by.podvintsev.martialartshallsproject.service;
 
+import by.podvintsev.martialartshallsproject.entity.Coach;
 import by.podvintsev.martialartshallsproject.entity.Gym;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Service
 public class RequestToCoachDatabaseService {
-    public static void insertIntoGym(Gym gym) {
+    public static void insertIntoCoach(Gym gym) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
@@ -17,7 +18,7 @@ public class RequestToCoachDatabaseService {
             session.getTransaction().commit();
         }
     }
-    public static void updateGym(Gym gym) {
+    public static void updateCoach(Gym gym) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
@@ -27,22 +28,22 @@ public class RequestToCoachDatabaseService {
             session.getTransaction().commit();
         }
     }
-    public static void deleteGym(Gym gym) {
+    public static void deleteCoach(Coach coach) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
-            var queryResult = session.createMutationQuery("delete from Gym where id_gym = :id").setParameter("id", gym.getId_gym());
+            var queryResult = session.createMutationQuery("delete from Coach where id_coach = :id").setParameter("id", coach.getId_coach());
             queryResult.executeUpdate();
             session.getTransaction().commit();
         }
     }
-    public static void uploadGym(List<Gym> allGyms, Model model) {
+    public static void uploadCoach(List<Coach> allCoaches, Model model) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
-            var quary = session.createSelectionQuery("SELECT g FROM Gym g ORDER BY g.id_gym ASC", Gym.class);
-            allGyms = quary.getResultList();
-            System.out.println(allGyms);
+            var quary = session.createSelectionQuery("SELECT g FROM Coach g ORDER BY g.id_coach ASC", Coach.class);
+            allCoaches = quary.getResultList();
+            System.out.println(allCoaches);
         }
-        model.addAttribute("allGyms", allGyms);
+        model.addAttribute("allCoaches", allCoaches);
     }
 }
