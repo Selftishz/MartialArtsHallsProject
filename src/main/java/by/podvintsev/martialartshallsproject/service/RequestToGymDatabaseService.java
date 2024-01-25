@@ -39,8 +39,8 @@ public class RequestToGymDatabaseService {
     public static void uploadGym(List<Gym> allGyms, Model model) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
-            var quary = session.createSelectionQuery("SELECT g FROM Gym g ORDER BY g.id_gym ASC", Gym.class);
-            allGyms = quary.getResultList();
+            var query = session.createSelectionQuery("SELECT g FROM Gym g ORDER BY g.id_gym ASC", Gym.class);
+            allGyms = query.getResultList();
             System.out.println(allGyms);
         }
         model.addAttribute("allGyms", allGyms);
