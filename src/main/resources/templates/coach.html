@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hello, this is gym page</h1>
+<h1>Hello, this is coach page</h1>
 <form th:method="POST" th:action="@{/home/select/coach}" th:object="${coach}">
     <p>Type all fields to create new coach: </p>
     <label for="input1">Enter first_name of new coach:</label>
@@ -16,10 +16,10 @@
     <input type=text id="input3" th:field="*{phone_number}">
     <label for="input4">Enter address of new coach:</label>
     <input type=text id="input4" th:field="*{address}">
-    <label for="input5">Enter aducation of new coach:</label>
-    <input type=text id="input5" th:field="*{aducation}">
-    <label for="input6">Enter additional_aducation of new coach:</label>
-    <input type=text id="input6" th:field="*{additional_aducation}">
+    <label for="input5">Enter education of new coach:</label>
+    <input type=text id="input5" th:field="*{education}">
+    <label for="input6">Enter additional_education of new coach:</label>
+    <input type=text id="input6" th:field="*{additional_education}">
     <button type="submit" name="button" value="insert">Insert into table</button>
     <br>
 </form>
@@ -35,9 +35,9 @@
     <label for="input10">Enter address of new coach:</label>
     <input type=text id="input10" th:field="*{address}">
     <label for="input11">Enter aducation of new coach:</label>
-    <input type=text id="input11" th:field="*{aducation}">
-    <label for="input12">Enter additional_aducation of new coach:</label>
-    <input type=text id="input12" th:field="*{additional_aducation}">
+    <input type=text id="input11" th:field="*{education}">
+    <label for="input12">Enter additional_education of new coach:</label>
+    <input type=text id="input12" th:field="*{additional_education}">
     <button type="submit" name="button" value="update">Insert into table</button>
     <br>
 </form>
@@ -56,9 +56,9 @@
         <th>last_name</th>
         <th>phone_number</th>
         <th>address</th>
-        <th>aducation</th>
-        <th>additional_aducation</th>
-        <th>id_human</th>
+        <th>education</th>
+        <th>additional_education</th>
+        <!--<th>id_human</th>-->
     </tr>
     <tr th:each="coach : ${allCoaches}">
         <td th:text="${coach.id_coach}"></td>
@@ -66,9 +66,9 @@
         <td th:text="${coach.last_name}"></td>
         <td th:text="${coach.phone_number}"></td>
         <td th:text="${coach.address}"></td>
-        <td th:text="${coach.aducation}"></td>
-        <td th:text="${coach.additional_aducation}"></td>
-        <td th:text="${coach.id_human}"></td>
+        <td th:text="${coach.education}"></td>
+        <td th:text="${coach.additional_education}"></td>
+        <!--<td th:text="${coach.id_human}"></td>-->
     </tr>
 </table>
 </body>

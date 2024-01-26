@@ -11,7 +11,8 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
 
-   <mapping class="by.podvintsev.martialartshallsproject.entity.Gym"/>
+    <mapping class="by.podvintsev.martialartshallsproject.entity.Gym"/>
+    <mapping class="by.podvintsev.martialartshallsproject.entity.Coach"/>
    <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

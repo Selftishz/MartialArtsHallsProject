@@ -1,10 +1,12 @@
 package by.podvintsev.martialartshallsproject.service;
 
+import by.podvintsev.martialartshallsproject.entity.Coach;
 import by.podvintsev.martialartshallsproject.entity.Gym;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service

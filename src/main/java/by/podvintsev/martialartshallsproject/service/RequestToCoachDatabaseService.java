@@ -22,14 +22,14 @@ public class RequestToCoachDatabaseService {
         }
     }
     public static void updateCoach(Coach coach) {
-        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+        /*try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
             Coach edit = session.get(Coach.class, coach.getId_coach());
             String address = coach.getHuman().getAddress();
             edit.getHuman().setAddress(address);
             session.getTransaction().commit();
-        }
+        }*/
     }
     public static void deleteCoach(Coach coach) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();

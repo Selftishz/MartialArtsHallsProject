@@ -11,15 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "coach", schema = "public")
-public class Coach {
+@Table(name = "human", schema = "public")
+public class People {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_coach;
+    private Integer id_human;
     private String first_name;
     private String last_name;
     private String address;
     private String phone_number;
-    private String education;
-    private String additional_education;
 }
