@@ -2,6 +2,7 @@ package by.podvintsev.martialartshallsproject.service;
 
 import by.podvintsev.martialartshallsproject.entity.Coach;
 import by.podvintsev.martialartshallsproject.entity.Gym;
+import by.podvintsev.martialartshallsproject.entity.People;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,12 +15,23 @@ import java.util.List;
 public class RequestToCoachDatabaseService {
     public static final Logger log = LoggerFactory.getLogger(RequestToCoachDatabaseService.class);
     public static void insertIntoCoach(Coach coach) {
+        log.info("In insertIntoCoach method: ");
+        People human = People.builder()
+                .id_human(20)
+                .address(coach.getAddress())
+                .first_name(coach.getFirst_name())
+                .last_name(coach.getLast_name())
+                .phone_number(coach.getPhone_number())
+                .build();
+        coach.setId_human(human);
+        log.info("Human has been added: ");
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
             session.persist(coach);
             session.getTransaction().commit();
         }
+        log.info("End of insertIntoCoach method: ");
     }
     public static void updateCoach(Coach coach) {
         /*try(var sessionFactory = HibernateUtil.buildSessionFactory();
