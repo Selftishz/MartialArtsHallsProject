@@ -16,14 +16,6 @@ public class RequestToCoachDatabaseService {
     public static final Logger log = LoggerFactory.getLogger(RequestToCoachDatabaseService.class);
     public static void insertIntoCoach(Coach coach) {
         log.info("In insertIntoCoach method: ");
-        People human = People.builder()
-                .id_human(20)
-                .address(coach.getAddress())
-                .first_name(coach.getFirst_name())
-                .last_name(coach.getLast_name())
-                .phone_number(coach.getPhone_number())
-                .build();
-        coach.setId_human(human);
         log.info("Human has been added: ");
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {

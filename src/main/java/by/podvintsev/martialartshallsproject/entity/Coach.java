@@ -22,7 +22,4 @@ public class Coach {
     private String phone_number;
     private String education;
     private String additional_education;
-    @OneToOne
-    @JoinColumn(name = "id_human")
-    private People id_human;
 }
