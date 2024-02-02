@@ -26,6 +26,8 @@
 
 <form th:method="POST" th:action="@{/home/select/coach}" th:object="${coach}">
     <p>Type id of a row you need to edit and new fields: </p>
+    <label for="input14">Enter first_name of new coach:</label>
+    <input type=text id="input14" th:field="*{aid_coach}">
     <label for="input7">Enter first_name of new coach:</label>
     <input type=text id="input7" th:field="*{first_name}">
     <label for="input8">Enter last_name of new coach:</label>

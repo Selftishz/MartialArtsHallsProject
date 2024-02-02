@@ -26,14 +26,24 @@ public class RequestToCoachDatabaseService {
         log.info("End of insertIntoCoach method: ");
     }
     public static void updateCoach(Coach coach) {
-        /*try(var sessionFactory = HibernateUtil.buildSessionFactory();
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
             Coach edit = session.get(Coach.class, coach.getId_coach());
-            String address = coach.getHuman().getAddress();
-            edit.getHuman().setAddress(address);
+            String address = coach.getAddress();
+            String first_name = coach.getFirst_name();
+            String last_name = coach.getLast_name();
+            String phone_number = coach.getPhone_number();
+            String education = coach.getEducation();
+            String additional_education = coach.getAdditional_education();
+            edit.setAddress(address);
+            edit.setEducation(education);
+            edit.setAdditional_education(additional_education);
+            edit.setFirst_name(first_name);
+            edit.setLast_name(last_name);
+            edit.setPhone_number(phone_number);
             session.getTransaction().commit();
-        }*/
+        }
     }
     public static void deleteCoach(Coach coach) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
