@@ -1,7 +1,7 @@
 package by.podvintsev.martialartshallsproject.service;
 
 import by.podvintsev.martialartshallsproject.entity.Gym;
-import by.podvintsev.martialartshallsproject.entity.SectionOfMartialArt;
+import by.podvintsev.martialartshallsproject.entity.TrainingRoom;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -9,45 +9,44 @@ import org.springframework.ui.Model;
 import java.util.List;
 
 @Service
-public class RequestToSectionOfMartialArtService {
-    public static void insertIntoSection(SectionOfMartialArt section) {
+public class RequestToTrainingRoomDatabaseService {
+    public static void insertIntoTrainingRoom(TrainingRoom trainingRoom) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
-            session.persist(section);
+            session.persist(trainingRoom);
             session.getTransaction().commit();
         }
     }
-    public static void updateSection(SectionOfMartialArt section) {
+    public static void updateTrainingRoom(TrainingRoom trainingRoom) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
-            SectionOfMartialArt edit = session.get(SectionOfMartialArt.class, section.getId_section());
-            String name = section.getSection_name();
-            edit.setSection_name(name);
+            TrainingRoom edit = session.get(TrainingRoom.class, trainingRoom.getId_training_room());
+            Integer room_number = trainingRoom.getRoom_number();
+            edit.setRoom_number(room_number);
             session.getTransaction().commit();
         }
     }
-    public static void deleteSection(SectionOfMartialArt section) {
+    public static void deleteTrainingRoom(TrainingRoom trainingRoom) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             session.beginTransaction();
             var queryResult = session
-                    .createMutationQuery("delete from SectionOfMartialArt where id_section = :id")
-                    .setParameter("id", section.getId_section());
+                    .createMutationQuery("delete from TrainingRoom where id_training_room = :id")
+                    .setParameter("id", trainingRoom.getId_training_room());
             queryResult.executeUpdate();
             session.getTransaction().commit();
         }
     }
-    public static void uploadSection(List<SectionOfMartialArt> allSections, Model model) {
+    public static void uploadTrainingRoom(List<TrainingRoom> allRooms, Model model) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()) {
             var query = session
-                    .createSelectionQuery("SELECT a FROM SectionOfMartialArt a ORDER BY a.id_section ASC",
-                            SectionOfMartialArt.class);
-            allSections = query.getResultList();
-            System.out.println(allSections);
+                    .createSelectionQuery("SELECT g FROM TrainingRoom g ORDER BY g.id_training_room ASC", TrainingRoom.class);
+            allRooms = query.getResultList();
+            System.out.println(allRooms);
         }
-        model.addAttribute("allSections", allSections);
+        model.addAttribute("allRooms", allRooms);
     }
 }

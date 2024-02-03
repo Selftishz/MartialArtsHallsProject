@@ -3,10 +3,12 @@ package by.podvintsev.martialartshallsproject.controller;
 import by.podvintsev.martialartshallsproject.entity.Coach;
 import by.podvintsev.martialartshallsproject.entity.Gym;
 import by.podvintsev.martialartshallsproject.entity.SectionOfMartialArt;
+import by.podvintsev.martialartshallsproject.entity.TrainingRoom;
 import by.podvintsev.martialartshallsproject.model.Entities;
 import by.podvintsev.martialartshallsproject.service.RequestToCoachDatabaseService;
 import by.podvintsev.martialartshallsproject.service.RequestToGymDatabaseService;
-import by.podvintsev.martialartshallsproject.service.RequestToSectionOfMartialArtService;
+import by.podvintsev.martialartshallsproject.service.RequestToSectionOfMartialArtDatabaseService;
+import by.podvintsev.martialartshallsproject.service.RequestToTrainingRoomDatabaseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,7 @@ public class MainController {
     private List<Gym> allGyms = new ArrayList<>();
     private List<Coach> allCoaches = new ArrayList<>();
     private List<SectionOfMartialArt> allSections = new ArrayList<>();
+    private List<TrainingRoom> allRooms = new ArrayList<>();
     @GetMapping ("/home")
     public String home(Model model) {
         return "home.html";
@@ -41,7 +44,11 @@ public class MainController {
             }
             case "SECTIONOFMARTIALART" -> {
                 model.addAttribute("sectionofmartialart", new SectionOfMartialArt());
-                RequestToSectionOfMartialArtService.uploadSection(allSections, model);
+                RequestToSectionOfMartialArtDatabaseService.uploadSection(allSections, model);
+            }
+            case "TRAININGROOM" -> {
+                model.addAttribute("trainingroom", new TrainingRoom());
+                RequestToTrainingRoomDatabaseService.uploadTrainingRoom(allRooms, model);
             }
         }
     }

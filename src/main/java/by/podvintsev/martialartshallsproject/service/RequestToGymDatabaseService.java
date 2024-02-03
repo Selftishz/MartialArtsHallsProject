@@ -43,7 +43,6 @@ public class RequestToGymDatabaseService {
             var session = sessionFactory.openSession()) {
             var query = session.createSelectionQuery("SELECT g FROM Gym g ORDER BY g.id_gym ASC", Gym.class);
             allGyms = query.getResultList();
-            System.out.println(allGyms);
         }
         model.addAttribute("allGyms", allGyms);
     }

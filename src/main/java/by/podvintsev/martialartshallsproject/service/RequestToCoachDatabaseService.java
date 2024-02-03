@@ -60,7 +60,6 @@ public class RequestToCoachDatabaseService {
             var session = sessionFactory.openSession()) {
             var query = session.createSelectionQuery("SELECT c FROM Coach c ORDER BY c.id_coach ASC", Coach.class);
             allCoaches = query.getResultList();
-            System.out.println(allCoaches);
         }
         model.addAttribute("allCoaches", allCoaches);
     }

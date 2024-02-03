@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Hello, this is trainingroom page</h1>
+<form th:method="POST" th:action="@{/home/select/trainingroom}" th:object="${trainingroom}">
+  <label for="input1">Enter number of new training room:</label>
+  <input type=text id="input1" th:field="*{room_number}">
+  <button type="submit" name="button" value="insert">Insert into table</button>
+  <br>
+</form>
+
+<form th:method="POST" th:action="@{/home/select/trainingroom}" th:object="${trainingroom}">
+  <p>Type id of a row you need to edit and new room number: </p>
+  <label for="input2">Id:</label>
+  <input type=text id="input2" th:field="*{id_training_room}">
+  <label for="input3">New number:</label>
+  <input type=text id="input3" th:field="*{room_number}">
+  <button type="submit" name="button" value="update">Update</button>
+</form>
+
+<form th:method="POST" th:action="@{/home/select/trainingroom}" th:object="${trainingroom}">
+  <p>Type id of a row you need to delete: </p>
+  <label for="input4">Id:</label>
+  <input type=text id="input4" th:field="*{id_training_room}">
+  <button type="submit" name="button" value="delete">Delete</button>
+</form>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>room number</th>
+  </tr>
+  <tr th:each="room : ${allRooms}">
+    <td th:text="${room.id_training_room}"></td>
+    <td th:text="${room.room_number}"></td>
+  </tr>
+</table>
+
+</body>
+</html>

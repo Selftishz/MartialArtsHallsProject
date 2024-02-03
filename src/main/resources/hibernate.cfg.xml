@@ -14,6 +14,7 @@
     <mapping class="by.podvintsev.martialartshallsproject.entity.Gym"/>
     <mapping class="by.podvintsev.martialartshallsproject.entity.Coach"/>
     <mapping class="by.podvintsev.martialartshallsproject.entity.SectionOfMartialArt"/>
+    <mapping class="by.podvintsev.martialartshallsproject.entity.TrainingRoom"/>
    <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 
