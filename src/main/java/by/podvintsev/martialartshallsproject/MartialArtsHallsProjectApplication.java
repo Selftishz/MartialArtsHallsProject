@@ -11,16 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MartialArtsHallsProjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(MartialArtsHallsProjectApplication.class, args);
-        /*try (var sessionFactory = HibernateUtil.buildSessionFactory();
-             var session = sessionFactory.openSession();) {
-            session.clear();
-            System.out.println("OK");
-            session.beginTransaction();
-            session.persist(Gym.builder()
-                    .address("Lenina 5")
-                    .build());
-            session.getTransaction().commit();*/
-
     }
 }
 

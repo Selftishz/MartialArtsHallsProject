@@ -13,7 +13,7 @@
 
     <mapping class="by.podvintsev.martialartshallsproject.entity.Gym"/>
     <mapping class="by.podvintsev.martialartshallsproject.entity.Coach"/>
-    <mapping class="by.podvintsev.martialartshallsproject.entity.People"/>
+    <mapping class="by.podvintsev.martialartshallsproject.entity.SectionOfMartialArt"/>
    <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 
