@@ -15,6 +15,6 @@ import lombok.NoArgsConstructor;
 public class SectionOfMartialArt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id_section;
-    String section_name;
+    private Integer id_section;
+    private String section_name;
 }
