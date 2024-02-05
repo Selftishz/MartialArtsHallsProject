@@ -1,9 +1,6 @@
 package by.podvintsev.martialartshallsproject.controller;
 
-import by.podvintsev.martialartshallsproject.entity.Coach;
-import by.podvintsev.martialartshallsproject.entity.Gym;
-import by.podvintsev.martialartshallsproject.entity.SectionOfMartialArt;
-import by.podvintsev.martialartshallsproject.entity.TrainingRoom;
+import by.podvintsev.martialartshallsproject.entity.*;
 import by.podvintsev.martialartshallsproject.model.Entities;
 import by.podvintsev.martialartshallsproject.service.RequestToCoachDatabaseService;
 import by.podvintsev.martialartshallsproject.service.RequestToGymDatabaseService;
@@ -49,6 +46,10 @@ public class MainController {
             case "TRAININGROOM" -> {
                 model.addAttribute("trainingroom", new TrainingRoom());
                 RequestToTrainingRoomDatabaseService.uploadTrainingRoom(allRooms, model);
+            }
+            case "GROUPOFHALL" -> {
+                model.addAttribute("groupofhall", new GroupOfHall());
+                // Переделать RequestToTrainingRoomDatabaseService.uploadTrainingRoom(allRooms, model);
             }
         }
     }
