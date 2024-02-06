@@ -27,8 +27,9 @@ public class GroupOfHall {
     @JoinColumn(name = "id_section")
     private SectionOfMartialArt id_section;
     @ManyToOne
-    @JoinColumn(name = "id_section")
+    @JoinColumn(name = "id_gym")
     private Gym id_gym;
     private Integer min_acceptable_age;
-
+    private Integer max_acceptable_age;
+    private Integer count_of_members;
 }

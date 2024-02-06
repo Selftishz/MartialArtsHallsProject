@@ -1,0 +1,54 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello, this is group page</h1>
+<form th:method="POST" th:action="@{/home/select/groupofhall}" th:object="${groupofhall}">
+    <label for="input1">Enter id of the coach:</label>
+    <input type=text id="input1" th:field="*{id_coach}">
+    <label for="input2">Enter id of the training_room:</label>
+    <input type=text id="input2" th:field="*{id_training_room}">
+    <label for="input3">Enter id of the section:</label>
+    <input type=text id="input3" th:field="*{id_section}">
+    <label for="input4">Enter id of the gym:</label>
+    <input type=text id="input4" th:field="*{id_gym}">
+    <label for="input11">Enter min acceptable age:</label>
+    <input type=text id="input11" th:field="*{min_acceptable_age}">
+    <label for="input12">Enter max acceptable age:</label>
+    <input type=text id="input12" th:field="*{max_acceptable_age}">
+    <label for="input13">Enter count of members:</label>
+    <input type=text id="input13" th:field="*{count_of_members}">
+    <button type="submit" name="button" value="insert">Insert into table</button>
+    <br>
+</form>
+
+<form th:method="POST" th:action="@{/home/select/groupofhall}" th:object="${groupofhall}">
+    <p>Type id of a row you need to edit and new address: </p>
+    <label for="input6">Id:</label>
+    <input type=text id="input6" th:field="*{id_gym}">
+
+    <button type="submit" name="button" value="update">Update</button>
+</form>
+
+<form th:method="POST" th:action="@{/home/select/groupofhall}" th:object="${groupofhall}">
+    <p>Type id of a row you need to delete: </p>
+    <label for="input8">Id:</label>
+    <input type=text id="input8" th:field="*{id_group}">
+    <button type="submit" name="button" value="delete">Delete</button>
+</form>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>address</th>
+    </tr>
+    <tr th:each="group : ${allGroups}">
+        <td th:text="${group.id_group}"></td>
+        <td th:text="${group.min_acceptable_age}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
