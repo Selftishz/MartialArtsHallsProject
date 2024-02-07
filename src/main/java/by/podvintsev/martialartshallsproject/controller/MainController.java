@@ -2,10 +2,7 @@ package by.podvintsev.martialartshallsproject.controller;
 
 import by.podvintsev.martialartshallsproject.entity.*;
 import by.podvintsev.martialartshallsproject.model.Entities;
-import by.podvintsev.martialartshallsproject.service.RequestToCoachDatabaseService;
-import by.podvintsev.martialartshallsproject.service.RequestToGymDatabaseService;
-import by.podvintsev.martialartshallsproject.service.RequestToSectionOfMartialArtDatabaseService;
-import by.podvintsev.martialartshallsproject.service.RequestToTrainingRoomDatabaseService;
+import by.podvintsev.martialartshallsproject.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +17,7 @@ public class MainController {
     private List<Coach> allCoaches = new ArrayList<>();
     private List<SectionOfMartialArt> allSections = new ArrayList<>();
     private List<TrainingRoom> allRooms = new ArrayList<>();
+    private List<GroupOfHall> allGroups = new ArrayList<>();
     @GetMapping ("/home")
     public String home(Model model) {
         return "home.html";
@@ -49,7 +47,7 @@ public class MainController {
             }
             case "GROUPOFHALL" -> {
                 model.addAttribute("groupofhall", new GroupOfHall());
-                // Переделать RequestToTrainingRoomDatabaseService.uploadTrainingRoom(allRooms, model);
+                RequestToGroupOfHallDatabaseService.uploadGroupOfHall(allGroups, model);
             }
         }
     }

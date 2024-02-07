@@ -30,15 +30,22 @@ public class GroupOfHallController {
         return "groupofhall.html";
     }
     @PostMapping(value = "/home/select/groupofhall", params = "button=update")
-    public String updateGroupOperation(Model model, @ModelAttribute("groupofhall") GroupOfHall groupofhall) {
-        RequestToGroupOfHallDatabaseService.updateGroupOfHall(groupofhall);
+    public String updateGroupOperation(Model model, @RequestParam("id_group_update") Integer id_group,
+                                       @RequestParam("id_coach_update") Integer id_coach,
+                                       @RequestParam("id_training_room_update") Integer id_training_room,
+                                       @RequestParam("id_section_update") Integer id_section,
+                                       @RequestParam("id_gym_update") Integer id_gym,
+                                       @RequestParam("min_acceptable_age_update") Integer min_acceptable_age,
+                                       @RequestParam("max_acceptable_age_update") Integer max_acceptable_age,
+                                       @RequestParam("count_of_members_update") Integer count_of_members) {
+        RequestToGroupOfHallDatabaseService.updateGroupOfHall(id_group, id_coach, id_training_room,
+                id_section, id_gym, min_acceptable_age, max_acceptable_age, count_of_members);
         RequestToGroupOfHallDatabaseService.uploadGroupOfHall(allGroups, model);
-        model.addAttribute("groupofhall", new GroupOfHall());
         return "groupofhall.html";
     }
     @PostMapping(value = "/home/select/groupofhall", params = "button=delete")
-    public String deleteGroupOperation(Model model, @ModelAttribute("groupofhall") GroupOfHall groupofhall) {
-        RequestToGroupOfHallDatabaseService.deleteGroupOfHall(groupofhall);
+    public String deleteGroupOperation(Model model, @RequestParam("id_group") Integer id_group) {
+        RequestToGroupOfHallDatabaseService.deleteGroupOfHall(id_group);
         RequestToGroupOfHallDatabaseService.uploadGroupOfHall(allGroups, model);
         model.addAttribute("groupofhall", new GroupOfHall());
         return "groupofhall.html";
