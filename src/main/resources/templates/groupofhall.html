@@ -6,20 +6,20 @@
 <body>
 <h1>Hello, this is group page</h1>
 <form th:method="POST" th:action="@{/home/select/groupofhall}" th:object="${groupofhall}">
-    <label for="input1">Enter id of the coach:</label>
-    <input type=text id="input1" th:field="*{id_coach}">
-    <label for="input2">Enter id of the training_room:</label>
-    <input type=text id="input2" th:field="*{id_training_room}">
-    <label for="input3">Enter id of the section:</label>
-    <input type=text id="input3" th:field="*{id_section}">
-    <label for="input4">Enter id of the gym:</label>
-    <input type=text id="input4" th:field="*{id_gym}">
-    <label for="input11">Enter min acceptable age:</label>
-    <input type=text id="input11" th:field="*{min_acceptable_age}">
-    <label for="input12">Enter max acceptable age:</label>
-    <input type=text id="input12" th:field="*{max_acceptable_age}">
-    <label for="input13">Enter count of members:</label>
-    <input type=text id="input13" th:field="*{count_of_members}">
+    <label for="id_coach">Enter id of the coach:</label>
+    <input type=text id="id_coach" th:field="*{id_coach}">
+    <label for="id_training_room">Enter id of the training_room:</label>
+    <input type=text id="id_training_room" th:field="*{id_training_room}">
+    <label for="id_section">Enter id of the section:</label>
+    <input type=text id="id_section" th:field="*{id_section}">
+    <label for="id_gym">Enter id of the gym:</label>
+    <input type=text id="id_gym" th:field="*{id_gym}">
+    <label for="min_acceptable_age">Enter min acceptable age:</label>
+    <input type=text id="min_acceptable_age" th:field="*{min_acceptable_age}">
+    <label for="max_acceptable_age">Enter max acceptable age:</label>
+    <input type=text id="max_acceptable_age" th:field="*{max_acceptable_age}">
+    <label for="count_of_members">Enter count of members:</label>
+    <input type=text id="count_of_members" th:field="*{count_of_members}">
     <button type="submit" name="button" value="insert">Insert into table</button>
     <br>
 </form>
