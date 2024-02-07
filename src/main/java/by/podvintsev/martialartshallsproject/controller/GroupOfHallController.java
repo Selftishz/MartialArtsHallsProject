@@ -44,7 +44,7 @@ public class GroupOfHallController {
         return "groupofhall.html";
     }
     @PostMapping(value = "/home/select/groupofhall", params = "button=delete")
-    public String deleteGroupOperation(Model model, @RequestParam("id_group") Integer id_group) {
+    public String deleteGroupOperation(Model model, @RequestParam("id_group_delete") Integer id_group) {
         RequestToGroupOfHallDatabaseService.deleteGroupOfHall(id_group);
         RequestToGroupOfHallDatabaseService.uploadGroupOfHall(allGroups, model);
         model.addAttribute("groupofhall", new GroupOfHall());

@@ -5,21 +5,21 @@
 </head>
 <body>
 <h1>Hello, this is group page</h1>
-<form th:method="POST" th:action="@{/home/select/groupofhall}" th:object="${groupofhall}">
+<form th:method="POST" th:action="@{/home/select/groupofhall}">
     <label for="id_coach">Enter id of the coach:</label>
-    <input type=text id="id_coach" th:field="*{id_coach}">
+    <input type=text id="id_coach" name="id_coach">
     <label for="id_training_room">Enter id of the training_room:</label>
-    <input type=text id="id_training_room" th:field="*{id_training_room}">
+    <input type=text id="id_training_room" name="id_training_room">
     <label for="id_section">Enter id of the section:</label>
-    <input type=text id="id_section" th:field="*{id_section}">
+    <input type=text id="id_section" name="id_section">
     <label for="id_gym">Enter id of the gym:</label>
-    <input type=text id="id_gym" th:field="*{id_gym}">
+    <input type=text id="id_gym" name="id_gym">
     <label for="min_acceptable_age">Enter min acceptable age:</label>
-    <input type=text id="min_acceptable_age" th:field="*{min_acceptable_age}">
+    <input type=text id="min_acceptable_age" name="min_acceptable_age">
     <label for="max_acceptable_age">Enter max acceptable age:</label>
-    <input type=text id="max_acceptable_age" th:field="*{max_acceptable_age}">
+    <input type=text id="max_acceptable_age" name="max_acceptable_age">
     <label for="count_of_members">Enter count of members:</label>
-    <input type=text id="count_of_members" th:field="*{count_of_members}">
+    <input type=text id="count_of_members" name="count_of_members">
     <button type="submit" name="button" value="insert">Insert into table</button>
     <br>
 </form>
@@ -27,28 +27,28 @@
 <form th:method="POST" th:action="@{/home/select/groupofhall}">
     <p>Type id of a row you need to edit and new address: </p>
     <label for="id_group_update">Id:</label>
-    <input type=text id="id_group_update">
+    <input type=text id="id_group_update" name="id_group_update">
     <label for="id_coach_update">Enter id of the coach:</label>
-    <input type=text id="id_coach_update">
+    <input type=text id="id_coach_update" name="id_coach_update">
     <label for="id_training_room_update">Enter id of the training_room:</label>
-    <input type=text id="id_training_room_update">
+    <input type=text id="id_training_room_update" name="id_training_room_update">
     <label for="id_section_update">Enter id of the section:</label>
-    <input type=text id="id_section_update">
+    <input type=text id="id_section_update" name="id_section_update">
     <label for="id_gym_update">Enter id of the gym:</label>
-    <input type=text id="id_gym_update">
+    <input type=text id="id_gym_update" name="id_gym_update">
     <label for="min_acceptable_age_update">Enter min acceptable age:</label>
-    <input type=text id="min_acceptable_age_update">
+    <input type=text id="min_acceptable_age_update" name="min_acceptable_age_update">
     <label for="max_acceptable_age_update">Enter max acceptable age:</label>
-    <input type=text id="max_acceptable_age_update">
+    <input type=text id="max_acceptable_age_update" name="max_acceptable_age_update">
     <label for="count_of_members_update">Enter count of members:</label>
-    <input type=text id="count_of_members_update">
+    <input type=text id="count_of_members_update" name="count_of_members_update">
     <button type="submit" name="button" value="update">Update</button>
 </form>
 
-<form th:method="POST" th:action="@{/home/select/groupofhall}" th:object="${groupofhall}">
+<form th:method="POST" th:action="@{/home/select/groupofhall}">
     <p>Type id of a row you need to delete: </p>
-    <label for="input8">Id:</label>
-    <input type=text id="input8" th:field="*{id_group}">
+    <label for="id_group_delete">Id:</label>
+    <input type=text id="id_group_delete" name="id_group_delete">
     <button type="submit" name="button" value="delete">Delete</button>
 </form>
 
