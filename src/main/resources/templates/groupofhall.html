@@ -55,11 +55,23 @@
 <table>
     <tr>
         <th>ID</th>
+        <th>id_coach</th>
+        <th>id_training_room</th>
+        <th>id_section</th>
+        <th>id_gym</th>
         <th>min_acceptable_age</th>
+        <th>max_acceptable_age</th>
+        <th>count_of_members</th>
     </tr>
     <tr th:each="group : ${allGroups}">
         <td th:text="${group.id_group}"></td>
+        <td th:text="${group.getId_coach().getId_coach()}"></td>
+        <td th:text="${group.getId_training_room().getId_training_room()}"></td>
+        <td th:text="${group.getId_section().getId_section()}"></td>
+        <td th:text="${group.getId_gym().getId_gym()}"></td>
         <td th:text="${group.min_acceptable_age}"></td>
+        <td th:text="${group.max_acceptable_age}"></td>
+        <td th:text="${group.count_of_members}"></td>
     </tr>
 </table>
 
