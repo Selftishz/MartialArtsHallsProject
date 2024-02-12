@@ -16,8 +16,6 @@
     <mapping class="by.podvintsev.martialartshallsproject.entity.SectionOfMartialArt"/>
     <mapping class="by.podvintsev.martialartshallsproject.entity.TrainingRoom"/>
     <mapping class="by.podvintsev.martialartshallsproject.entity.GroupOfHall"/>
-    <mapping class="by.podvintsev.martialartshallsproject.entity.MemberParent"/>
-    <mapping class="by.podvintsev.martialartshallsproject.entity.MemberOfHall"/>
    <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

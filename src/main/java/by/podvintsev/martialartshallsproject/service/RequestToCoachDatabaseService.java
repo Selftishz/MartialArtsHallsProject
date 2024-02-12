@@ -1,8 +1,6 @@
 package by.podvintsev.martialartshallsproject.service;
 
 import by.podvintsev.martialartshallsproject.entity.Coach;
-import by.podvintsev.martialartshallsproject.entity.Gym;
-import by.podvintsev.martialartshallsproject.entity.People;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
