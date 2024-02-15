@@ -14,3 +14,9 @@
 <p>CRUD operations are available to you with 5 tables: coach, group_of_hall, gym, section_of_martial_art, training_room. Also you can view the contents of each table.</p>
 
 ![HomePage](https://github.com/Selftishz/MartialArtsHallsProject/assets/91327210/5562758e-35f4-4c62-a955-1b14c6fd43cf)
+
+![image](https://github.com/Selftishz/MartialArtsHallsProject/assets/91327210/94c466fa-a97b-4f91-9d3a-67cf053b8112)
+
+![image](https://github.com/Selftishz/MartialArtsHallsProject/assets/91327210/d61f8a7e-9cb6-4897-a798-898151c9e00a)
+
+
