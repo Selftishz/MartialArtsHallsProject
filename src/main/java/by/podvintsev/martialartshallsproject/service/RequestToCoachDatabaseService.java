@@ -1,7 +1,9 @@
 package by.podvintsev.martialartshallsproject.service;
 
 import by.podvintsev.martialartshallsproject.entity.Coach;
+import by.podvintsev.martialartshallsproject.repository.CoachRepository;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -9,8 +11,10 @@ import org.springframework.ui.Model;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class RequestToCoachDatabaseService {
+    private CoachRepository coachRepository;
     public static final Logger log = LoggerFactory.getLogger(RequestToCoachDatabaseService.class);
     public static void insertIntoCoach(Coach coach) {
         log.info("In insertIntoCoach method: ");
