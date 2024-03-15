@@ -3,6 +3,7 @@ package by.podvintsev.martialartshallsproject.controller;
 import by.podvintsev.martialartshallsproject.entity.*;
 import by.podvintsev.martialartshallsproject.model.Entities;
 import by.podvintsev.martialartshallsproject.service.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class MainController {
+    private final RequestToCoachDatabaseService requestToCoachDatabaseService;
+
     ArrayList<String> arrayList = new ArrayList<>();
     private List<Gym> allGyms = new ArrayList<>();
     private List<Coach> allCoaches = new ArrayList<>();
@@ -35,7 +39,7 @@ public class MainController {
             }
             case "COACH" -> {
                 model.addAttribute("coach", new Coach());
-                RequestToCoachDatabaseService.uploadCoach(allCoaches, model);
+                requestToCoachDatabaseService.uploadCoach(allCoaches, model);
             }
             case "SECTIONOFMARTIALART" -> {
                 model.addAttribute("sectionofmartialart", new SectionOfMartialArt());

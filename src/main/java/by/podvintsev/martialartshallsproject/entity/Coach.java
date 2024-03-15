@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Coach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_coach;
+    private Long id_coach;
     private String first_name;
     private String last_name;
     private String address;
