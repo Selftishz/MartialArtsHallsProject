@@ -1,9 +1,8 @@
 package by.podvintsev.martialartshallsproject.controller;
 
 import by.podvintsev.martialartshallsproject.entity.Coach;
-import by.podvintsev.martialartshallsproject.service.RequestToCoachDatabaseService;
+import by.podvintsev.martialartshallsproject.service.CoachService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,25 +15,25 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CoachController {
     private List<Coach> allCoaches = new ArrayList<>();
-    private final RequestToCoachDatabaseService requestToCoachDatabaseService;
+    private final CoachService coachService;
     @PostMapping(value = "/home/select/coach", params = "button=insert")
     public String insertCoachOperation(Model model, @ModelAttribute("coach") Coach coach) {
-        requestToCoachDatabaseService.insertIntoCoach(coach);
-        requestToCoachDatabaseService.uploadCoach(allCoaches, model);
+        coachService.insertIntoCoach(coach);
+        coachService.uploadCoach(allCoaches, model);
         model.addAttribute("coach", new Coach());
         return "coach.html";
     }
     @PostMapping(value = "/home/select/coach", params = "button=update")
     public String updateCoachOperation(Model model, @ModelAttribute("coach") Coach coach) {
-        requestToCoachDatabaseService.updateCoach(coach);
-        requestToCoachDatabaseService.uploadCoach(allCoaches, model);
+        coachService.updateCoach(coach);
+        coachService.uploadCoach(allCoaches, model);
         model.addAttribute("coach", new Coach());
         return "coach.html";
     }
     @PostMapping(value = "/home/select/coach", params = "button=delete")
     public String deleteCoachOperation(Model model, @ModelAttribute("coach") Coach coach) {
-        requestToCoachDatabaseService.deleteCoach(coach);
-        requestToCoachDatabaseService.uploadCoach(allCoaches, model);
+        coachService.deleteCoach(coach);
+        coachService.uploadCoach(allCoaches, model);
         model.addAttribute("coach", new Coach());
         return "coach.html";
     }

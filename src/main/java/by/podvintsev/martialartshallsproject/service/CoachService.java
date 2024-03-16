@@ -5,7 +5,6 @@ import by.podvintsev.martialartshallsproject.repository.CoachRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -15,9 +14,9 @@ import java.util.List;
 @Transactional
 @Service
 @RequiredArgsConstructor
-public class RequestToCoachDatabaseService {
+public class CoachService {
     private final CoachRepository coachRepository;
-    public static final Logger log = LoggerFactory.getLogger(RequestToCoachDatabaseService.class);
+    public static final Logger log = LoggerFactory.getLogger(CoachService.class);
 
     public void insertIntoCoach(Coach coach) {
         log.info("In insertIntoCoach method: ");
