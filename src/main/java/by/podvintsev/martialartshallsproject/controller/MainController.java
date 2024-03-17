@@ -18,6 +18,7 @@ public class MainController {
     private final SectionOfMartialArtService sectionOfMartialArtService;
     private final TrainingRoomService trainingRoomService;
     private final GymService gymService;
+    private final GroupOfHallService groupOfHallService;
     private List<Gym> allGyms = new ArrayList<>();
     private List<Coach> allCoaches = new ArrayList<>();
     private List<SectionOfMartialArt> allSections = new ArrayList<>();
@@ -52,7 +53,7 @@ public class MainController {
             }
             case "GROUPOFHALL" -> {
                 model.addAttribute("groupofhall", new GroupOfHall());
-                GroupOfHallService.uploadGroupOfHall(allGroups, model);
+                groupOfHallService.uploadGroupOfHall(allGroups, model);
             }
         }
     }

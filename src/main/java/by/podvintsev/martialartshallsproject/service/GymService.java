@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GymService {
     private final GymRepository gymRepository;
-    public static final Logger log = LoggerFactory.getLogger(CoachService.class);
+    public static final Logger log = LoggerFactory.getLogger(GymService.class);
     public void insertIntoGym(Gym gym) {
         gymRepository.save(gym);
     }

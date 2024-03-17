@@ -16,7 +16,7 @@ import java.util.List;
 @Transactional
 @RequiredArgsConstructor
 public class TrainingRoomService {
-    public static final Logger log = LoggerFactory.getLogger(CoachService.class);
+    public static final Logger log = LoggerFactory.getLogger(TrainingRoomService.class);
     private final TrainingRoomRepository trainingRoomRepository;
     public void insertIntoTrainingRoom(TrainingRoom trainingRoom) {
         trainingRoomRepository.save(trainingRoom);

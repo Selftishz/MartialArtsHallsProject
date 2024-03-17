@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional
 public class SectionOfMartialArtService {
-    public static final Logger log = LoggerFactory.getLogger(CoachService.class);
+    public static final Logger log = LoggerFactory.getLogger(SectionOfMartialArtService.class);
     private final SectionOfMartialArtRepository sectionOfMartialArtRepository;
     public void insertIntoSection(SectionOfMartialArt section) {
         sectionOfMartialArtRepository.save(section);
