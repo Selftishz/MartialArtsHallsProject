@@ -1,7 +1,9 @@
 package by.podvintsev.martialartshallsproject.controller;
 
 import by.podvintsev.martialartshallsproject.entity.SectionOfMartialArt;
-import by.podvintsev.martialartshallsproject.service.RequestToSectionOfMartialArtDatabaseService;
+import by.podvintsev.martialartshallsproject.repository.SectionOfMartialArtRepository;
+import by.podvintsev.martialartshallsproject.service.SectionOfMartialArtService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,14 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class SectionController {
+    private final SectionOfMartialArtService sectionOfMartialArtService;
     private List<SectionOfMartialArt> allSections = new ArrayList<>();
 
     @PostMapping(value = "/home/select/sectionofmartialart", params = "button=insert")
     public String insertGymOperation(Model model, @ModelAttribute("sectionofmartialart")
     SectionOfMartialArt sectionofmartialart) {
-        RequestToSectionOfMartialArtDatabaseService.insertIntoSection(sectionofmartialart);
-        RequestToSectionOfMartialArtDatabaseService.uploadSection(allSections, model);
+        sectionOfMartialArtService.insertIntoSection(sectionofmartialart);
+        sectionOfMartialArtService.uploadSection(allSections, model);
         model.addAttribute("sectionofmartialart", new SectionOfMartialArt());
         return "sectionofmartialart.html";
     }
@@ -26,8 +30,8 @@ public class SectionController {
     @PostMapping(value = "/home/select/sectionofmartialart", params = "button=update")
     public String updateGymOperation(Model model, @ModelAttribute("sectionofmartialart")
     SectionOfMartialArt sectionofmartialart) {
-        RequestToSectionOfMartialArtDatabaseService.updateSection(sectionofmartialart);
-        RequestToSectionOfMartialArtDatabaseService.uploadSection(allSections, model);
+        sectionOfMartialArtService.updateSection(sectionofmartialart);
+        sectionOfMartialArtService.uploadSection(allSections, model);
         model.addAttribute("sectionofmartialart", new SectionOfMartialArt());
         return "sectionofmartialart.html";
     }
@@ -35,8 +39,8 @@ public class SectionController {
     @PostMapping(value = "/home/select/sectionofmartialart", params = "button=delete")
     public String deleteGymOperation(Model model, @ModelAttribute("sectionofmartialart")
     SectionOfMartialArt sectionofmartialart) {
-        RequestToSectionOfMartialArtDatabaseService.deleteSection(sectionofmartialart);
-        RequestToSectionOfMartialArtDatabaseService.uploadSection(allSections, model);
+        sectionOfMartialArtService.deleteSection(sectionofmartialart);
+        sectionOfMartialArtService.uploadSection(allSections, model);
         model.addAttribute("sectionofmartialart", new SectionOfMartialArt());
         return "sectionofmartialart.html";
     }

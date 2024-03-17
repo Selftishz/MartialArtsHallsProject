@@ -29,7 +29,7 @@ public class CoachService {
                 coach.getPhone_number(), coach.getAddress(), coach.getEducation(), coach.getAdditional_education(), coach.getId_coach());
     }
     public void deleteCoach(Coach coach) {
-        coachRepository.delete(coach);
+        coachRepository.deleteById(coach.getId_coach());
     }
     public void uploadCoach(List<Coach> allCoaches, Model model) {
         log.info("Get into coach uploading method");

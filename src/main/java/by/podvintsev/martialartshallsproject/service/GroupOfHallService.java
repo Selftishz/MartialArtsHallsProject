@@ -1,38 +1,26 @@
 package by.podvintsev.martialartshallsproject.service;
 
 import by.podvintsev.martialartshallsproject.entity.*;
+import by.podvintsev.martialartshallsproject.repository.CoachRepository;
+import by.podvintsev.martialartshallsproject.repository.GroupOfHallRepository;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Service
-public class RequestToGroupOfHallDatabaseService {
-    public static void insertIntoGroupOfHall(Integer id_coach, Integer id_training_room, Integer id_section,
-                                             Integer id_gym, Integer min_acceptable_age, Integer max_acceptable_age,
-                                             Integer count_of_members) {
-        try(var sessionFactory = HibernateUtil.buildSessionFactory();
-            var session = sessionFactory.openSession()) {
-            Coach coach = session.get(Coach.class, id_coach);
-            TrainingRoom trainingRoom = session.get(TrainingRoom.class, id_training_room);
-            SectionOfMartialArt sectionOfMartialArt = session.get(SectionOfMartialArt.class, id_section);
-            Gym gym = session.get(Gym.class, id_gym);
-            GroupOfHall groupOfHall = GroupOfHall.builder()
-                    .id_training_room(trainingRoom)
-                    .id_gym(gym)
-                    .id_section(sectionOfMartialArt)
-                    .id_coach(coach)
-                    .count_of_members(count_of_members)
-                    .max_acceptable_age(max_acceptable_age)
-                    .min_acceptable_age(min_acceptable_age).build();
-            session.beginTransaction();
-            session.persist(groupOfHall);
-            session.getTransaction().commit();
-        }
+@Transactional
+@RequiredArgsConstructor
+public class GroupOfHallService {
+    private final GroupOfHallRepository groupOfHallRepository;
+    private final CoachRepository coachRepository;
+    public void insertIntoGroupOfHall(GroupOfHall groupOfHall) {
+        groupOfHallRepository.save(groupOfHall);
     }
-    public static void updateGroupOfHall(Integer id_group, Integer id_coach, Integer id_training_room, Integer id_section,
+    public void updateGroupOfHall(Integer id_group, Integer id_coach, Integer id_training_room, Integer id_section,
                                          Integer id_gym, Integer min_acceptable_age, Integer max_acceptable_age,
                                          Integer count_of_members) {
         try(var sessionFactory = HibernateUtil.buildSessionFactory();

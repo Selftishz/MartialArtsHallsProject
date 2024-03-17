@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class GroupOfHall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_group;
+    private Long id_group;
     @ManyToOne()
     @JoinColumn(name = "id_coach")
     private Coach id_coach;

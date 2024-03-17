@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MainController {
     private final CoachService coachService;
+    private final SectionOfMartialArtService sectionOfMartialArtService;
     private List<Gym> allGyms = new ArrayList<>();
     private List<Coach> allCoaches = new ArrayList<>();
     private List<SectionOfMartialArt> allSections = new ArrayList<>();
@@ -41,7 +42,7 @@ public class MainController {
             }
             case "SECTIONOFMARTIALART" -> {
                 model.addAttribute("sectionofmartialart", new SectionOfMartialArt());
-                RequestToSectionOfMartialArtDatabaseService.uploadSection(allSections, model);
+                sectionOfMartialArtService.uploadSection(allSections, model);
             }
             case "TRAININGROOM" -> {
                 model.addAttribute("trainingroom", new TrainingRoom());
@@ -49,7 +50,7 @@ public class MainController {
             }
             case "GROUPOFHALL" -> {
                 model.addAttribute("groupofhall", new GroupOfHall());
-                RequestToGroupOfHallDatabaseService.uploadGroupOfHall(allGroups, model);
+                GroupOfHallService.uploadGroupOfHall(allGroups, model);
             }
         }
     }
