@@ -1,47 +1,35 @@
 package by.podvintsev.martialartshallsproject.service;
 
 import by.podvintsev.martialartshallsproject.entity.Gym;
+import by.podvintsev.martialartshallsproject.repository.GymRepository;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import java.util.List;
 
 @Service
+@Transactional
+@RequiredArgsConstructor
 public class GymService {
-    public static void insertIntoGym(Gym gym) {
-        try(var sessionFactory = HibernateUtil.buildSessionFactory();
-            var session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            session.persist(gym);
-            session.getTransaction().commit();
-        }
+    private final GymRepository gymRepository;
+    public static final Logger log = LoggerFactory.getLogger(CoachService.class);
+    public void insertIntoGym(Gym gym) {
+        gymRepository.save(gym);
     }
-    public static void updateGym(Gym gym) {
-        try(var sessionFactory = HibernateUtil.buildSessionFactory();
-            var session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            Gym edit = session.get(Gym.class, gym.getId_gym());
-            String address = gym.getAddress();
-            edit.setAddress(address);
-            session.getTransaction().commit();
-        }
+    public void updateGym(Gym gym) {
+        gymRepository.updateById(gym.getAddress(), gym.getId_gym());
     }
-    public static void deleteGym(Gym gym) {
-        try(var sessionFactory = HibernateUtil.buildSessionFactory();
-            var session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            var queryResult = session.createMutationQuery("delete from Gym where id_gym = :id").setParameter("id", gym.getId_gym());
-            queryResult.executeUpdate();
-            session.getTransaction().commit();
-        }
+    public void deleteGym(Gym gym) {
+        gymRepository.deleteById(gym.getId_gym());
     }
-    public static void uploadGym(List<Gym> allGyms, Model model) {
-        try(var sessionFactory = HibernateUtil.buildSessionFactory();
-            var session = sessionFactory.openSession()) {
-            var query = session.createSelectionQuery("SELECT g FROM Gym g ORDER BY g.id_gym ASC", Gym.class);
-            allGyms = query.getResultList();
-        }
-        model.addAttribute("allGyms", allGyms);
+    public void uploadGym(List<Gym> allGyms, Model model) {
+        log.info("Get into gym uploading method");
+        allGyms = gymRepository.findAll();
+        model.addAttribute("allGyms", allGyms);;
     }
 }

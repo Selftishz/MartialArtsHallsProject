@@ -18,6 +18,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class Gym {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_gym;
+    private Long id_gym;
     private String address;
 }

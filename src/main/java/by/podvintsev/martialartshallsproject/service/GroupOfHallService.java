@@ -3,6 +3,8 @@ package by.podvintsev.martialartshallsproject.service;
 import by.podvintsev.martialartshallsproject.entity.*;
 import by.podvintsev.martialartshallsproject.repository.CoachRepository;
 import by.podvintsev.martialartshallsproject.repository.GroupOfHallRepository;
+import by.podvintsev.martialartshallsproject.repository.SectionOfMartialArtRepository;
+import by.podvintsev.martialartshallsproject.repository.TrainingRoomRepository;
 import by.podvintsev.martialartshallsproject.util.HibernateUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ import java.util.List;
 public class GroupOfHallService {
     private final GroupOfHallRepository groupOfHallRepository;
     private final CoachRepository coachRepository;
+    private final TrainingRoomRepository trainingRoomRepository;
+    private final SectionOfMartialArtRepository sectionOfMartialArtRepository;
     public void insertIntoGroupOfHall(GroupOfHall groupOfHall) {
         groupOfHallRepository.save(groupOfHall);
     }

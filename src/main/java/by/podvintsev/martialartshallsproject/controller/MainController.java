@@ -16,6 +16,8 @@ import java.util.List;
 public class MainController {
     private final CoachService coachService;
     private final SectionOfMartialArtService sectionOfMartialArtService;
+    private final TrainingRoomService trainingRoomService;
+    private final GymService gymService;
     private List<Gym> allGyms = new ArrayList<>();
     private List<Coach> allCoaches = new ArrayList<>();
     private List<SectionOfMartialArt> allSections = new ArrayList<>();
@@ -34,7 +36,7 @@ public class MainController {
         switch (selectTable) {
             case "GYM" -> {
                 model.addAttribute("gym", new Gym());
-                GymService.uploadGym(allGyms, model);
+                gymService.uploadGym(allGyms, model);
             }
             case "COACH" -> {
                 model.addAttribute("coach", new Coach());
@@ -46,7 +48,7 @@ public class MainController {
             }
             case "TRAININGROOM" -> {
                 model.addAttribute("trainingroom", new TrainingRoom());
-                TrainingRoomService.uploadTrainingRoom(allRooms, model);
+                trainingRoomService.uploadTrainingRoom(allRooms, model);
             }
             case "GROUPOFHALL" -> {
                 model.addAttribute("groupofhall", new GroupOfHall());
