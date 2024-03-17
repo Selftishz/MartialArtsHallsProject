@@ -34,7 +34,7 @@ public class MainController {
         switch (selectTable) {
             case "GYM" -> {
                 model.addAttribute("gym", new Gym());
-                RequestToGymDatabaseService.uploadGym(allGyms, model);
+                GymService.uploadGym(allGyms, model);
             }
             case "COACH" -> {
                 model.addAttribute("coach", new Coach());
@@ -46,7 +46,7 @@ public class MainController {
             }
             case "TRAININGROOM" -> {
                 model.addAttribute("trainingroom", new TrainingRoom());
-                RequestToTrainingRoomDatabaseService.uploadTrainingRoom(allRooms, model);
+                TrainingRoomService.uploadTrainingRoom(allRooms, model);
             }
             case "GROUPOFHALL" -> {
                 model.addAttribute("groupofhall", new GroupOfHall());
