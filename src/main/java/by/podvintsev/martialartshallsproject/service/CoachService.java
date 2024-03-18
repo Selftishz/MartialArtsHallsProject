@@ -25,8 +25,9 @@ public class CoachService {
         log.info("End of insertIntoCoach method: ");
     }
     public void updateCoach(Coach coach) {
-        coachRepository.updateById(coach.getFirst_name(), coach.getFirst_name(),
-                coach.getPhone_number(), coach.getAddress(), coach.getEducation(), coach.getAdditional_education(), coach.getId_coach());
+        log.info("Get into Coach UPDATE method");
+        coachRepository.updateById(coach.getFirst_name(), coach.getLast_name(), coach.getAddress(),
+                coach.getPhone_number(), coach.getEducation(), coach.getAdditional_education(), coach.getId_coach());
     }
     public void deleteCoach(Coach coach) {
         coachRepository.deleteById(coach.getId_coach());

@@ -1,4 +1,4 @@
-package by.podvintsev.martialartshallsproject.unit;
+package by.podvintsev.martialartshallsproject.unit.controllerTest;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -21,17 +21,15 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 class MainControllerTest {
     @InjectMocks
     private MainController mainController;
-    @Mock
-    private CoachService coachService;
     private MockMvc mockMvc;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(mainController).build();
     }
 
     @Test
-    void selectTable() throws Exception {
+    public void MainController_SelectTableCorrectly() throws Exception {
         mockMvc.perform(get("/home/select")
                         .param("selectTable", "COACH"))
                 .andExpect(status().isOk())

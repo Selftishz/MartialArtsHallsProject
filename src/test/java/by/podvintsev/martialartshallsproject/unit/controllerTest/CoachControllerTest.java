@@ -1,6 +1,6 @@
-package by.podvintsev.martialartshallsproject.unit;
+package by.podvintsev.martialartshallsproject.unit.controllerTest;
 
-import by.podvintsev.martialartshallsproject.repository.CoachRepository;
+import by.podvintsev.martialartshallsproject.controller.CoachController;
 import by.podvintsev.martialartshallsproject.service.CoachService;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -8,9 +8,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class CoachServiceTest {
-    @InjectMocks
-    private CoachService coachService;
+public class CoachControllerTest {
     @Mock
-    private CoachRepository coachRepository;
+    CoachService coachService;
+    @InjectMocks
+    CoachController coachController;
 }

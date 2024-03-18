@@ -2,7 +2,6 @@ package by.podvintsev.martialartshallsproject.service;
 
 import by.podvintsev.martialartshallsproject.entity.TrainingRoom;
 import by.podvintsev.martialartshallsproject.repository.TrainingRoomRepository;
-import by.podvintsev.martialartshallsproject.util.HibernateUtil;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -10,7 +10,7 @@
     </parent>
     <groupId>by.podvintsev</groupId>
     <artifactId>MartialArtsHallsProject</artifactId>
-    <version>0.1.2.1</version>
+    <version>0.1.3</version>
     <name>MartialArtsHallsProject</name>
     <description>MartialArtsHallsProject</description>
     <properties>
@@ -55,6 +55,11 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
