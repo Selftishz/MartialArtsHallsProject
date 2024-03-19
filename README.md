@@ -6,7 +6,9 @@
   <li>Maven</li>
   <li>Spring Core</li>
   <li>Spring Web</li>
+  <li>Spring Data</li>
   <li>Hibernate</li>
+  <li>JUnit 5 + Mockito</li>
   <li>PostgreSQL 16</li>
   <li>HTML + Thymeleaf</li>
 </ul>
