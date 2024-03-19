@@ -21,7 +21,9 @@ public class TrainingRoomService {
         trainingRoomRepository.save(trainingRoom);
     }
     public void updateTrainingRoom(TrainingRoom trainingRoom) {
-        trainingRoomRepository.updateById(trainingRoom.getRoom_number(), trainingRoom.getId_training_room());
+        TrainingRoom roomInTable = trainingRoomRepository.findById(trainingRoom.getId_training_room()).get();
+        roomInTable.setRoom_number(trainingRoom.getRoom_number());
+        trainingRoomRepository.save(roomInTable);
     }
     public void deleteTrainingRoom(TrainingRoom trainingRoom) {
         trainingRoomRepository.deleteById(trainingRoom.getId_training_room());

@@ -38,12 +38,19 @@ public class GroupOfHallService {
     public void updateGroupOfHall(Long id_group, Long id_coach, Long id_training_room, Long id_section,
                                          Long id_gym, Integer min_acceptable_age, Integer max_acceptable_age,
                                          Integer count_of_members) {
+        GroupOfHall groupOfHallFromTable = groupOfHallRepository.findById(id_group).get();
         Coach coach = coachRepository.getReferenceById(id_coach);
         TrainingRoom trainingRoom = trainingRoomRepository.getReferenceById(id_training_room);
         SectionOfMartialArt sectionOfMartialArt = sectionOfMartialArtRepository.getReferenceById(id_section);
         Gym gym = gymRepository.getReferenceById(id_gym);
-        groupOfHallRepository.updateById(id_group, coach, trainingRoom,
-                sectionOfMartialArt, gym, min_acceptable_age, max_acceptable_age, count_of_members);
+        groupOfHallFromTable.setMax_acceptable_age(max_acceptable_age);
+        groupOfHallFromTable.setMin_acceptable_age(min_acceptable_age);
+        groupOfHallFromTable.setCount_of_members(count_of_members);
+        groupOfHallFromTable.setId_section(sectionOfMartialArt);
+        groupOfHallFromTable.setId_gym(gym);
+        groupOfHallFromTable.setId_coach(coach);
+        groupOfHallFromTable.setId_training_room(trainingRoom);
+        groupOfHallRepository.save(groupOfHallFromTable);
     }
     public void deleteGroupOfHall(Long id_group) {
         groupOfHallRepository.deleteById(id_group);

@@ -22,7 +22,9 @@ public class GymService {
         gymRepository.save(gym);
     }
     public void updateGym(Gym gym) {
-        gymRepository.updateById(gym.getAddress(), gym.getId_gym());
+        Gym gymInTable = gymRepository.findById(gym.getId_gym()).get();
+        gymInTable.setAddress(gym.getAddress());
+        gymRepository.save(gymInTable);
     }
     public void deleteGym(Gym gym) {
         gymRepository.deleteById(gym.getId_gym());

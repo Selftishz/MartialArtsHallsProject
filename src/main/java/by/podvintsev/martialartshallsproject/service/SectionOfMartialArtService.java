@@ -22,7 +22,9 @@ public class SectionOfMartialArtService {
         sectionOfMartialArtRepository.save(section);
     }
     public void updateSection(SectionOfMartialArt section) {
-        sectionOfMartialArtRepository.updateById(section.getSection_name(), section.getId_section());
+        SectionOfMartialArt sectionOfMartialArt = sectionOfMartialArtRepository.findById(section.getId_section()).get();
+        sectionOfMartialArt.setSection_name(section.getSection_name());
+        sectionOfMartialArtRepository.save(sectionOfMartialArt);
     }
     public void deleteSection(SectionOfMartialArt section) {
         sectionOfMartialArtRepository.deleteById(section.getId_section());
