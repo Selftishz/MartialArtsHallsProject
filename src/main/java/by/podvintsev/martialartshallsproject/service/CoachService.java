@@ -26,8 +26,16 @@ public class CoachService {
     }
     public void updateCoach(Coach coach) {
         log.info("Get into Coach UPDATE method");
-        coachRepository.updateById(coach.getFirst_name(), coach.getLast_name(), coach.getAddress(),
-                coach.getPhone_number(), coach.getEducation(), coach.getAdditional_education(), coach.getId_coach());
+        /*coachRepository.updateById(coach.getFirst_name(), coach.getLast_name(), coach.getAddress(),
+                coach.getPhone_number(), coach.getEducation(), coach.getAdditional_education(), coach.getId_coach());*/
+        Coach coachInTable = coachRepository.findById(coach.getId_coach()).get();
+        coachInTable.setPhone_number(coach.getPhone_number());
+        coachInTable.setFirst_name(coach.getFirst_name());
+        coachInTable.setLast_name(coach.getLast_name());
+        coachInTable.setAdditional_education(coach.getAdditional_education());
+        coachInTable.setEducation(coach.getEducation());
+        coachInTable.setAddress(coach.getAddress());
+        coachRepository.save(coachInTable);
     }
     public void deleteCoach(Coach coach) {
         coachRepository.deleteById(coach.getId_coach());
